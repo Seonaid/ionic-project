@@ -17,6 +17,19 @@ angular.module('starter.controllers', [])
 
 .controller('DashCtrl', function($scope) {})
 
+.controller('CommunitiesCtrl', ['$scope', '$http', function($scope, $http) {
+  $scope.communities = [];
+
+  $http.get('http://localhost:3000/api/communities').then(function(response){
+    console.log('Success', response);
+    $scope.communities = response.data;
+    console.log($scope.communities);
+
+  }, function(err){
+    console.log('ERR', err);
+  })
+}])
+
 .controller('ChatsCtrl', function($scope, Chats) {
   $scope.chats = Chats.all();
   $scope.remove = function(chat) {

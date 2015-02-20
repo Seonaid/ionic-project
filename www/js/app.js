@@ -21,6 +21,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   });
 })
 
+
+
+.filter('addLeadingURL', function($sce){
+  return function(imagePath){
+    console.log(imagePath);
+    return $sce.trustAsResourceUrl('http://localhost:3000' + imagePath);
+  };
+})
+
 .config(function($stateProvider, $urlRouterProvider) {
 
   // Ionic uses AngularUI Router which uses the concept of states
@@ -50,6 +59,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       'tab-dash': {
         templateUrl: 'templates/tab-dash.html',
         controller: 'DashCtrl'
+      }
+    }
+  })
+
+  .state('tab.communities', {
+    url: '/communities',
+    views: {
+      'tab-communities': {
+        templateUrl: 'templates/tab-communities.html',
+        controller: 'CommunitiesCtrl'
       }
     }
   })
@@ -106,3 +125,4 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   $urlRouterProvider.otherwise('/login');
 
 });
+

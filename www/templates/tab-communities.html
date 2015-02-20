@@ -1,0 +1,17 @@
+<ion-view view-title="Communities">
+  <ion-content class="padding">
+    <div class="list card" ng-repeat = "community in communities">
+      <div class="item item-divider">{{community.community_name}}</div>
+      <div class="item item-body">
+        <div >
+          <img ng-src="{{community.featured_image | addLeadingURL}}">
+          <div>
+
+          {{community.description}}
+<div>
+        </div>
+      </div>
+    </div>
+
+  </ion-content>
+</ion-view>
