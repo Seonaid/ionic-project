@@ -21,8 +21,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   });
 })
 
-
-
 .filter('addLeadingURL', function($sce){
   return function(imagePath){
     console.log(imagePath);
