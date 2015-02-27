@@ -1,5 +1,10 @@
 <ion-view view-title="Communities">
+  <ion-nav-buttons side = "right">
+<button class = "button ion-plus-circled" ng-click = "newCommunity()"></button>
+</ion-nav-buttons>
   <ion-content class="padding">
+  
+  <p>{{confirmation}}</p>
     <div class="list card" ng-repeat = "community in communities">
       <div class="item item-divider">{{community.community_name}}</div>
       <div class="item item-body">
@@ -15,3 +20,26 @@
 
   </ion-content>
 </ion-view>
+
+<script id="add-community.html" type="text/ng-template">
+  <ion-modal-view>
+    <ion-header-bar>
+      <h1 class="title">Add Community</h1>
+    <button class = "button" ng-click ="closeModal()">Cancel</button>
+    </ion-header-bar>
+    <ion-content>
+            <form ng-submit="createTask(task)">
+        <div class="list">
+          <label class="item item-input">
+            <input type="text" placeholder="What do you need to do?" ng-model="task.title">
+          </label>
+        </div>
+        <div class="padding">
+          <button type="submit" class="button button-block button-positive">Create Task</button>
+        </div>
+      </form>
+      
+    </ion-content>
+
+  </ion-modal-view>
+</script>
